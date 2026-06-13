@@ -78,7 +78,7 @@ const hitosHistoria = [
         titulo: "Tu graduación",
         fecha: "Tu graduación",
         imagenMiniatura: "img/besoGraduacion.JPEG",
-        imagenDetalle: ["img/besoFiltroGraduacion.JPG", "img/beso2Graduacion.JPEG", "img/besoGraduacion.JPEG", "img/sonrisaGraduacionRecortada.JPEG"],
+        imagenDetalle: ["img/besoFiltroGraduacion.jpg", "img/beso2Graduacion.JPEG", "img/besoGraduacion.JPEG", "img/sonrisaGraduacionRecortada.JPEG"],
         textoCorto: "Después de tanto tiempo con exámenes, momentos que nunca olvidarás y siempre rodeada de gente que te quiere, por fin ha llegado el día que tanto esperabas.",
         textoLargo: "Tu graduación es uno de los momentos más importantes en la vida de una persona y me siento muy orgulloso de poder haber estado y compartido este momento contigo, hiciste que el día que tan dificil se te va a hacer olvidar, para mí tambien sea inolvidable. Ver la alegría que tenías al salir del teatro y recibir el ramo, siempre con la gente que te quiere me pareció un momento precioso. Estoy muy orgulloso de todo el esfuerzo que has hecho, porque solamente tú sabes cuanto te ha costado y que no ha sido fácil. Gracias por pasar esa noche conmigo allí en la ermita bailando, fue una locura y lo que ocurrió luego mejor nos lo callamos JAJAJAJAJAJ, teamo muchísimo miamorrr."
     }
