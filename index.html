@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nuestra historia y nuestro futuro juntos. Un rincón muy especial.">
+    <title>Nosotros dos (hoyuelitos y casi rubio)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <svg class="heart-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50,88.9C23.6,66.6,6.7,48.5,6.7,30.2C6.7,16.5,16.5,6.7,30.2,6.7 C38.6,6.7,46.7,11,50,18.1C53.3,11,61.4,6.7,69.8,6.7C83.5,6.7,93.3,16.5,93.3,30.2C93.3,48.5,76.4,66.6,50,88.9z" fill="none" stroke="var(--accent-purple)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="50" cy="40" r="18" fill="#fff" stroke="#111" stroke-width="2"/>
+              <text x="50" y="47" font-family="Arial" font-weight="bold" font-size="20" text-anchor="middle" fill="#111">8</text>
+            </svg>
+            <div class="brand-text">
+                <h1>Nosotros dos</h1>
+                <span class="subtitle">(hoyuelitos y casi rubio)</span>
+            </div>
+        </div>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" data-target="inicio" class="active">Inicio</a></li>
+            <li><a href="#" data-target="historia">Nuestra Historia</a></li>
+            <li><a href="#" data-target="recuerdos">Recuerdos</a></li>
+            <li><a href="#" data-target="cosas">Cosas Nuestras</a></li>
+            <li><a href="#" data-target="canciones">Canciones</a></li>
+            <li><a href="#" data-target="porvenir">Por Hacer</a></li>
+            <li><a href="#" data-target="cupones">Cupones</a></li>
+            <li class="dark-mode-item">
+                <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content-container">
+        <!-- INICIO -->
+        <section id="inicio" class="page-section active-section">
+            <div class="hero-image-container">
+                <img src="img/sonrisaGraduacionRecortada.JPEG" alt="Nuestra Foto de Bienvenida" class="hero-image">
+            </div>
+            <div class="welcome-text">
+                <h2 id="dynamic-greeting">¡Hola mi amor!</h2>
+                <p>He preparado este lugar solo para nosotros. Para poder recordar todo lo que hemos vivido, lo mucho que nos queremos y todos los planes que quedan por hacer. Eres mi casualidad favorita.</p>
+            </div>
+            <div class="counter-container">
+                <h3 id="counter-title">Calculando nuestro tiempo mágico...</h3>
+                <div id="counter-display" class="counter-display">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </section>
+
+        <!-- NUESTRA HISTORIA -->
+        <section id="historia" class="page-section">
+            <h2 id="historia-section-title">Nuestra Historia</h2>
+            <div class="timeline" id="timeline-container">
+                <!-- Se cargará dinámicamente desde JavaScript a partir del array hitosHistoria -->
+            </div>
+
+            <!-- Vista de Detalle Estética (A pantalla completa dentro de la sección) -->
+            <div id="milestone-detail-view" class="milestone-detail-view" style="display: none;">
+                <button id="back-to-timeline-btn" class="back-timeline-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Volver a nuestra historia
+                </button>
+                <div class="detail-content">
+                    <h2 id="detail-title">Título del momento</h2>
+                    <div class="detail-img-container">
+                        <img id="detail-img" src="" alt="Detalle del momento">
+                        <button id="prev-btn" class="carousel-btn prev-btn" aria-label="Anterior">&lt;</button>
+                        <button id="next-btn" class="carousel-btn next-btn" aria-label="Siguiente">&gt;</button>
+                        <div id="carousel-dots" class="carousel-dots"></div>
+                    </div>
+                    <div class="detail-long-text">
+                        <p id="detail-text">Aquí va la anécdota larga...</p>
+                    </div>
+                    <!-- Contenedor de vídeo opcional -->
+                    <div id="detail-video-container" class="detail-video-container" style="display: none;">
+                        <h4 id="detail-video-title" class="detail-video-title">Video de...</h4>
+                        <div class="detail-video-wrapper">
+                            <video id="detail-video" src="" controls playsinline></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECUERDOS -->
+        <section id="recuerdos" class="page-section">
+            <h2>Nuestros Recuerdos</h2>
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="viajes">Planes Inolvidables</button>
+                    <button class="tab-btn" data-tab="citas">Citas Perfectas</button>
+                    <button class="tab-btn" data-tab="random">Momentos Random</button>
+                    <button class="tab-btn" data-tab="bullying-daniela">FotoBullying Daniela</button>
+                    <button class="tab-btn" data-tab="bullying-angel">FotoBullying Angel</button>
+                </div>
+                <div class="tab-content active" id="tab-viajes">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/agarrados.JPEG" alt="Plan Inolvidable 1">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/fotoEspejoDaniela.JPG" alt="Plan Inolvidable 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/nosotrosJuntos.jpg" alt="Plan Inolvidable 3">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/besoGraduacion.JPEG" alt="Plan Inolvidable 4">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-citas">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/fotoPrimeraJuntos.JPEG" alt="Primera cita">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-random">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/fotoLluviaMegatin.JPEG" alt="Momento random 1">
+                        </div>
+                    </div>
+                </div>
+                <!-- FotoBullying Daniela Tab Content -->
+                <div class="tab-content" id="tab-bullying-daniela">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/fotoArribaDaniela.JPEG" alt="Bullying Daniela 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/primeraFoto.JPEG" alt="Bullying Daniela 3">
+                        </div>
+                    </div>
+                </div>
+                <!-- FotoBullying Angel Tab Content -->
+                <div class="tab-content" id="tab-bullying-angel">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="img/fotoAngelComunion.JPEG" alt="Bullying Angel 1">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/fotoAngelFrente.JPG" alt="Bullying Angel 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/fotoAngelRara.JPEG" alt="Bullying Angel 3">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="img/fotoAngelTraje.JPEG" alt="Bullying Angel 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COSAS NUESTRAS -->
+        <section id="cosas" class="page-section">
+            <h2>Cosas Nuestras</h2>
+            
+            <div class="cosas-grid">
+                <div class="cosas-card">
+                    <h3>Nuestros Motes</h3>
+                    <ul class="motes-list">
+                        <li><span>Tú para mí:</span> <span class="highlight">Casi rubio</span></li>
+                        <li><span>Yo para ti:</span> <span class="highlight">Hoyuelitos</span></li>
+                    </ul>
+                </div>
+                
+                <div class="cosas-card">
+                    <h3>Anécdotas Inolvidables</h3>
+                    <p>Aquella madrugada juntos esperando que saliera la procesión o cuando intentaste presentarme a tu prima por la cara, o cuando casi suspendes el trabajo porque se te apagó el movil en mitad del camino. Momentos tan tontos pero que se han convertido en lo mas bonito que tengo ahora mismo.</p>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <h3>Estadísticas 100% Científicas</h3>
+                
+                <div class="stat-row">
+                    <span class="stat-label">Quién tarda más en arreglarse</span>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar ella" style="width: 80%;"><span>Tú (80%)</span></div>
+                        <div class="stat-bar el" style="width: 20%;"><span>Yo (20%)</span></div>
+                    </div>
+                </div>
+
+                <div class="stat-row">
+                    <span class="stat-label">Quién llega más tarde a los sitios</span>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar ella" style="width: 65%;"><span>Tú (65%)</span></div>
+                        <div class="stat-bar el" style="width: 35%;"><span>Yo (35%)</span></div>
+                    </div>
+                </div>
+
+                <div class="stat-row">
+                    <span class="stat-label">Quién tiene mejor gusto con la comida</span>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar empate" style="width: 100%;"><span>¡Empate! Nos encanta comer (100%)</span></div>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN COMPORTAMIENTOS BAJO LA LUPA -->
+                <div class="lupa-section">
+                    <h3 class="lupa-title">No tengo pruebas pero tampoco dudas </h3>
+                    
+                    <div class="vs-container">
+                        <!-- Versus 1: Dormirse antes -->
+                        <div class="vs-card">
+                            <h4>¿Quién se queda dormido antes?</h4>
+                            <div class="vs-display">
+                                <div class="vs-circle tu proportion-95">
+                                    <span class="circle-label">Tú</span>
+                                    <span class="circle-value">95%</span>
+                                </div>
+                                <span class="vs-badge">VS</span>
+                                <div class="vs-circle yo proportion-5">
+                                    <span class="circle-label">Yo</span>
+                                    <span class="circle-value">5%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Versus 2: Quejas con el resfriado -->
+                        <div class="vs-card">
+                            <h4>¿Quién se queja más con la alergia?</h4>
+                            <div class="vs-display">
+                                <div class="vs-circle tu proportion-10">
+                                    <span class="circle-label">Tú</span>
+                                    <span class="circle-value">60%</span>
+                                </div>
+                                <span class="vs-badge">VS</span>
+                                <div class="vs-circle yo proportion-90">
+                                    <span class="circle-label">Yo</span>
+                                    <span class="circle-value">40%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medidor de Peligro Semicircular: ¿Qué quieres cenar? -->
+                    <div class="gauge-card">
+                        <h4 class="gauge-card-title">¿Qué quieres cenar?</h4>
+                        <div class="gauge-wrapper">
+                            <svg class="gauge-svg" viewBox="0 0 100 50">
+                                <defs>
+                                    <linearGradient id="gauge-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="var(--primary-color)" />
+                                        <stop offset="60%" stop-color="var(--accent-purple)" />
+                                        <stop offset="100%" stop-color="#ffb3ba" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Fondo gris de la escala -->
+                                <path d="M 15 45 A 35 35 0 0 1 85 45" fill="none" stroke="#e9ecef" stroke-width="8" stroke-linecap="round"/>
+                                <!-- Relleno de color degradado -->
+                                <path d="M 15 45 A 35 35 0 0 1 85 45" fill="none" stroke="url(#gauge-grad)" stroke-width="8" stroke-linecap="round"/>
+                                
+                                <!-- Zona de Alerta (Destello) en el extremo derecho -->
+                                <circle cx="82" cy="42" r="5" class="danger-zone-glow" />
+                                <circle cx="82" cy="42" r="3.5" fill="#ff8b94" />
+                                
+                                <!-- Aguja del velocímetro apuntando al máximo (derecha) -->
+                                <g transform="translate(50, 45)">
+                                    <!-- Rotada 0 grados apunta a la derecha, metemos pequeña vibración en CSS -->
+                                    <line x1="0" y1="0" x2="30" y2="-3" stroke="var(--text-main)" stroke-width="2.5" stroke-linecap="round" class="gauge-needle" />
+                                    <circle cx="0" cy="0" r="4.5" fill="var(--text-main)" />
+                                </g>
+                            </svg>
+                            <div class="gauge-text">
+                                <span class="danger-status">¡ALERTA MÁXIMA!</span>
+                                <p class="infinite-loop">Será lo que la niña diga: <strong>100% de las veces</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CANCIONES -->
+        <section id="canciones" class="page-section">
+            <h2>Nuestras canciones favoritas</h2>
+            <div class="canciones-container">
+                <div class="spotify-container">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4aqTZH2JdQrgu43r83a98O?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="songs-cards">
+                    <div class="song-card">
+                        <h4>Nuestra canción favorita</h4>
+                        <p>Esta canción es muy especial para nosotros. Cada vez que la escucho, no puedo evitar acordarme de tus hoyuelitos y de cómo me haces sonreír en cualquier momento (aunque diga que no me guste la sonrisa).</p>
+                        <iframe class="mini-spotify-player" style="border-radius:12px; margin-top: 15px;" src="https://open.spotify.com/embed/track/7Btdfb0u6xW8GNawIvNESw?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                    <div class="song-card">
+                        <h4>Nuestra marcha favorita</h4>
+                        <p>Es una marcha tan especial para los dos que me trae recuerdos de cuando nos conocimos, de esos abrazos y del escaloncito tan mítico, porque me encanta compartir cosas contigo y no hay nada mejor que la mejor semana del año.</p>
+                        <iframe class="mini-spotify-player" style="border-radius:12px; margin-top: 15px;" src="https://open.spotify.com/embed/track/1ewn3ARRwDwLcPlxemunPS?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POR VENIR -->
+        <section id="porvenir" class="page-section">
+            <h2>Nuestra Lista de Deseos</h2>
+            <p class="section-desc">Todo lo que nos queda por vivir y tachar juntos...</p>
+            <div class="bucket-list">
+                <label class="bucket-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="item-text">Hacer un viaje juntos.</span>
+                    <svg class="success-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </label>
+                <label class="bucket-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="item-text">Adoptar otra mascota juntos (aparte de quevedín).</span>
+                    <svg class="success-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </label>
+                <label class="bucket-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="item-text">Ver el amanecer/atardecer abrazados.</span>
+                    <svg class="success-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </label>
+                <label class="bucket-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="item-text">Ver una peli juntos (a poder ser Cars, Spiderman y Mamma Mia).</span>
+                    <svg class="success-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </label>
+                <label class="bucket-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="item-text">Intentar soportarnos de viejitos.</span>
+                    <svg class="success-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </label>
+                <label class="bucket-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="item-text">Ir a un concierto de Quevedo juntos.</span>
+                    <svg class="success-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </label>
+                <label class="bucket-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="item-text">Dormir juntos (minimo una siesta).</span>
+                    <svg class="success-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </label>
+                <label class="bucket-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="item-text">Estar en familia con Claudia, Nico y Hugo.</span>
+                    <svg class="success-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </label>
+                <label class="bucket-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="item-text">Cenar en un sitio bonito juntos (y que no nos manchemos).</span>
+                    <svg class="success-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </label>
+            </div>
+        </section>
+
+        <!-- CUPONES -->
+        <section id="cupones" class="page-section">
+            <h2>Cupones muy valiosos</h2>
+            <p class="section-desc">Úsalos cuando quieras usarlos, pero hazlo con cabeza que no tienes muchos.</p>
+            <div class="coupons-grid">
+                <div class="coupon-card">
+                    <div class="coupon-content">
+                        <h4>Vale por:</h4>
+                        <p>Un masaje muy relajante a manos de un pedazo de masajista profesional (yo)</p>
+                    </div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-content">
+                        <h4>Vale por:</h4>
+                        <p>Elegir tu comida favorita sin que yo pueda decir nada</p>
+                    </div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-content">
+                        <h4>Vale por:</h4>
+                        <p>Una tarde entera de peli, mantita y comida</p>
+                    </div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-content">
+                        <h4>Vale por:</h4>
+                        <p>Una tarde de compras donde hago de asistente personal y cargo con todas las bolsas con una sonrisa (spoiler: no da risa).</p>
+                    </div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-content">
+                        <h4>Vale por:</h4>
+                        <p>Perdonarte en el momento por cualquier cosa.</p>
+                    </div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-content">
+                        <h4>Vale por:</h4>
+                        <p>Poder agarrar cualquier sudadera mía y robártela</p>
+                    </div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-content">
+                        <h4>Vale por:</h4>
+                        <p>Una tarde de compras sujetando las bolsas sin quejarme (mucho).</p>
+                    </div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-content">
+                        <h4>Vale por:</h4>
+                        <p>Ganar una discusión automáticamente.</p>
+                    </div>
+                </div><div class="coupon-card">
+                    <div class="coupon-content">
+                        <h4>Vale por:</h4>
+                        <p>Hacer un fotomatón y sacar mil fotos juntos.</p>
+                    </div>
+                </div>
+                <div class="coupon-card special-coupon">
+                    <div class="coupon-content">
+                        <h4>CUPÓN EXCLUSIVO</h4>
+                        <p class="special-text">VALE PARA HACER LO QUE TÚ QUIERAS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL DE CONFIRMACIÓN DE CUPONES GORGEOUS Y ROMÁNTICO -->
+    <div id="coupon-modal" class="coupon-modal-backdrop">
+        <div class="coupon-modal-content">
+            <div id="coupon-modal-icon" class="coupon-modal-icon"></div>
+            <p id="coupon-modal-message">¿Segura de que quieres canjear este vale?</p>
+            <div class="coupon-modal-actions">
+                <button id="coupon-modal-cancel" class="coupon-modal-btn cancel-btn">Cancelar</button>
+                <button id="coupon-modal-confirm" class="coupon-modal-btn confirm-btn">Canjear</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
