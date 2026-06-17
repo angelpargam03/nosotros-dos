@@ -623,3 +623,146 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// =========================================================================
+// FUNCIÓN ESPECIAL DE ANIVERSARIO (CADA DÍA 22)
+// Código aislado para celebrar el aniversario mensual sin interferir con el resto
+// =========================================================================
+(function() {
+    const modoPrueba = false; // CAMBIAR A false PARA QUE SOLO FUNCIONE EL DÍA 22
+
+    function checkAnniversary() {
+        const hoy = new Date();
+        const dia = hoy.getDate();
+
+        if (dia === 22 || modoPrueba) {
+            triggerAnniversary();
+        }
+    }
+
+    let intervalLluvia = null;
+    let rainContainer = null;
+    let rainTimeout = null;
+    let cleanupTimeout = null;
+
+    function triggerAnniversary() {
+        // 1. Deshabilitar scroll en el body
+        document.body.classList.add('anniversary-active');
+
+        // 2. Crear el contenedor para la lluvia de corazones
+        rainContainer = document.createElement('div');
+        rainContainer.className = 'heart-rain-container';
+        document.body.appendChild(rainContainer);
+
+        // 3. Crear la estructura del modal de aniversario
+        const overlay = document.createElement('div');
+        overlay.className = 'anniversary-overlay';
+        overlay.id = 'anniversary-modal-overlay';
+
+        const modal = document.createElement('div');
+        modal.className = 'anniversary-modal';
+
+        const title = document.createElement('h2');
+        title.className = 'anniversary-title';
+        title.textContent = '¡Otro mes más juntos amorr, a por más 22 juntos! 🤍';
+
+        const button = document.createElement('button');
+        button.className = 'anniversary-btn';
+        button.textContent = 'Entrar a nuestro rincón';
+
+        modal.appendChild(title);
+        modal.appendChild(button);
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        // Mostrar con un pequeño retardo para que la transición de CSS se aprecie
+        setTimeout(() => {
+            overlay.classList.add('show');
+        }, 100);
+
+        // 4. Iniciar la lluvia de corazones
+        startHeartRain();
+
+        // 5. Configurar el temporizador de 10 segundos para detener la lluvia de corazones
+        rainTimeout = setTimeout(() => {
+            stopHeartRainGenerator();
+            // Esperar a que los últimos corazones terminen de caer (máximo 7s + margen) antes de eliminar el contenedor
+            cleanupTimeout = setTimeout(() => {
+                if (rainContainer) {
+                    rainContainer.remove();
+                    rainContainer = null;
+                }
+            }, 7500);
+        }, 10000);
+
+        // 6. Configurar el evento de cierre
+        button.addEventListener('click', () => {
+            // Desaparecer modal suavemente
+            overlay.classList.remove('show');
+
+            // Reactivar scroll
+            document.body.classList.remove('anniversary-active');
+
+            // Eliminar elemento overlay del DOM después de la transición de opacidad (600ms)
+            setTimeout(() => {
+                overlay.remove();
+            }, 600);
+        });
+    }
+
+    function startHeartRain() {
+        const colores = ['#ffb3ba', '#ffc6ff', '#e8c4ec', '#b388d0', '#d8b4e2', '#f3e8ff'];
+
+        function createHeart() {
+            if (!rainContainer) return;
+            const heart = document.createElement('div');
+            heart.className = 'rain-heart';
+            
+            // Usamos el carácter de corazón '❤'
+            heart.textContent = '❤';
+            const color = colores[Math.floor(Math.random() * colores.length)];
+            heart.style.setProperty('--heart-color', color);
+            
+            // Posición horizontal aleatoria
+            const posX = Math.random() * 100;
+            heart.style.left = `${posX}%`;
+            
+            // Tamaño aleatorio
+            const size = Math.floor(Math.random() * 20) + 15; // de 15px a 35px
+            heart.style.setProperty('--heart-size', `${size}px`);
+            
+            // Duraciones aleatorias para animación de caída y balanceo
+            const fallDuration = (Math.random() * 3) + 4; // de 4s a 7s
+            const swayDuration = (Math.random() * 2) + 1.5; // de 1.5s a 3.5s
+            
+            heart.style.setProperty('--fall-duration', `${fallDuration}s`);
+            heart.style.setProperty('--sway-duration', `${swayDuration}s`);
+            
+            // Añadir al contenedor
+            rainContainer.appendChild(heart);
+            
+            // Eliminar del DOM después de que termine la animación
+            setTimeout(() => {
+                heart.remove();
+            }, fallDuration * 1000);
+        }
+
+        // Generar corazones continuamente
+        intervalLluvia = setInterval(createHeart, 250); // cada 250ms
+    }
+
+    function stopHeartRainGenerator() {
+        if (intervalLluvia) {
+            clearInterval(intervalLluvia);
+            intervalLluvia = null;
+        }
+    }
+
+    // Ejecutar una vez cargado el DOM
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', checkAnniversary);
+    } else {
+        checkAnniversary();
+    }
+})();
+
